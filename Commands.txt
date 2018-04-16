@@ -1,0 +1,18 @@
+~/hadoop/sbin/start-dfs.sh
+~/hadoop/bin/hdfs dfs -mkdir /user
+~/hadoop/bin/hdfs dfs -mkdir /user/your_user_name
+~/hadoop/bin/hdfs dfs -put ~/sample.txt input_data
+~/hadoop/bin/hadoop jar ~/exp5a.jar input_data output_data
+~/hadoop/bin/hdfs dfs -cat output_data/*
+~/hadoop/bin/hdfs dfs -rm -r input_data output_data
+~/hadoop/sbin/stop-dfs.sh
+
+
+mpicc server.c -o server
+mpicc client.c -o client
+
+mpirun -np 1 ./server
+
+mpirun -np 1 ./client
+'4290510848.0;tcp://192.168.1.101:35820;tcp://192.168.122.1:35820+4290510849.0;tcp://192.168.
+1.101:40208;tcp://192.168.122.1:40208:300'
